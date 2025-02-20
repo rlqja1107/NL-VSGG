@@ -4,6 +4,10 @@
 ![LLMs](https://img.shields.io/badge/Model-GPT--3.5-green)
 ![LLMs](https://img.shields.io/badge/Model-VLM-green)
 
+
+The official source code for [Weakly Supervised Video Scene Graph Generation via Natural Language Supervision](https://openreview.net/pdf?id=GQgPj1H4pO), accepted at [ICLR 2025](https://iclr.cc/).
+
+
 ## **Overview**    
 
 <img src="figure/Introduction.png" width="500">  
@@ -15,7 +19,7 @@ As shown in Fig.(a), existing Video Scene Graph Generation (VidSGG) studies are 
 * **Variability in Action Duration**: Human actions unfold over varying duration in a video. Likewise, without considering it, the VidSGG models may erroneously be supervised.
 
 
-### Proposed Framework: **VSNLS**
+### Proposed Framework: **NL-VSGG**
 
 To train the VidSGG models with only readily available video captions, we propose a simple yet effective framework, called weakly supervised **V**id**S**GG with **N**atural **L**anguage **S**upervision (**VSNLS**). To consider aforementioned two key factors, **VSNLS** consists of two key modules: Temporality-aware Caption Segmentation (TCS) module, and Action Duration Variability-aware Caption-Frame Alignment (ADV) module.
 
