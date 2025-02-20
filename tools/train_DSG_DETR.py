@@ -12,7 +12,7 @@ def str2bool(s):
     if s not in {'false', 'true'}:
         raise ValueError('Not a valid boolean string')
     return s == 'true'
-parser.add_argument('--cfg', dest='cfg_file', help='optional config file', default='configs/VSNLS_config.yml', type=str)
+parser.add_argument('--cfg', dest='cfg_file', help='optional config file', default='configs/nl_vsgg_config.yml', type=str)
 
 args = parser.parse_args()
 if args.cfg_file is not None:
@@ -59,7 +59,7 @@ torch.backends.cudnn.deterministic = True
 conf.tensorboard_name = conf.save_path
 vl_model = None; tokenize=None
 
-logger = setup_logger("VSNLS", conf.save_path, get_rank())
+logger = setup_logger("NL-VSGG", conf.save_path, get_rank())
 
 AG_dataset_train = AG_Train(data_path=conf.data_path, pseudo_label_path=conf.pseudo_localized_SG_path, save_path=conf.save_path, logger=logger)
 dataloader_train = torch.utils.data.DataLoader(AG_dataset_train, shuffle=True, num_workers=conf.num_workers,

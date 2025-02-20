@@ -18,7 +18,7 @@ def str2bool(s):
         raise ValueError('Not a valid boolean string')
     return s == 'true'
 
-parser.add_argument('--cfg', dest='cfg_file', help='optional config file', default='configs/VSNLS_config.yml', type=str)
+parser.add_argument('--cfg', dest='cfg_file', help='optional config file', default='configs/nl_vsgg_config.yml', type=str)
 parser.add_argument('--model_path',  default="")
 args = parser.parse_args()
 if args.cfg_file is not None:
@@ -26,7 +26,7 @@ if args.cfg_file is not None:
     
 conf.model_path = args.model_path
     
-logger = setup_logger("VSNLS", conf.save_path, get_rank())
+logger = setup_logger("NL-VSGG", conf.save_path, get_rank())
 logger.info(f"Inference DSG-DETR model with '{args.model_path}'")
 
 AG_dataset_test = AG_Test(mode="test", logger=logger, data_path=conf.data_path,

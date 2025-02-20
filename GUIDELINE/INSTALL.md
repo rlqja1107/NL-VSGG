@@ -3,8 +3,8 @@
 Please install required packages or repositories step by step.  
 
 ``` python  
-conda create -n vsnls python=3.8.0
-conda activate vsnls
+conda create -n vsgg python=3.8.0
+conda activate vsgg
 
 # pytorch version: 1.10.1
 pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 -f https://download.pytorch.org/whl/cu111/torch_stable.html

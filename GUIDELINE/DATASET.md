@@ -12,7 +12,7 @@ We use the same code with [Action Genome](https://github.com/JingweiJ/ActionGeno
 * Video → Multiple Frames
 
 ``` python  
-python VSNLS/data_preprocess/dump_frames.py
+python NL-VSGG/data_preprocess/dump_frames.py
 ```
 
 ### Data Directory  
@@ -47,4 +47,4 @@ root
 * [ag_train_id.pkl](https://drive.google.com/file/d/1h_kcdJdfwnPyHUWugS8nxHPeAno_7aPv/view?usp=sharing), [ag_test_id.pkl](https://drive.google.com/file/d/1g2xru3KayaIyCuJhxKsYpIe4hgNr3yI9/view?usp=sharing): Following [STTran](https://github.com/yrcong/STTran), we collect video index list with frames.
 
 * [ag_img_info_train.pkl](https://drive.google.com/file/d/1eZw9ElQBbAFAnBkHF9-pjnsfW55e8SMd/view?usp=sharing), [ag_img_info_test.pkl](https://drive.google.com/file/d/14DvE5pWBWPlBG6yUnorIWt3rMztntetq/view?usp=sharing): Transformed images' width and height  
-Please refer to [VSNLS/data_preprocess/extract_ag_img_info.py](../VSNLS/data_preprocess/extract_ag_img_info.py)
+Please refer to [NL-VSGG/data_preprocess/extract_ag_img_info.py](../NL-VSGG/data_preprocess/extract_ag_img_info.py)
