@@ -21,7 +21,7 @@ As shown in Fig.(a), existing Video Scene Graph Generation (VidSGG) studies are 
 
 ### Proposed Framework: **NL-VSGG**
 
-To train the VidSGG models with only readily available video captions, we propose a simple yet effective framework, called weakly supervised **V**id**S**GG with **N**atural **L**anguage **S**upervision (**VSNLS**). To consider aforementioned two key factors, **VSNLS** consists of two key modules: Temporality-aware Caption Segmentation (TCS) module, and Action Duration Variability-aware Caption-Frame Alignment (ADV) module.
+To train the VidSGG models with only readily available video captions, we propose a simple yet effective framework, called **N**atural **L**anguage-based **V**ideo **S**cene **G**raph **G**eneration  (**NL-VSGG**). To consider aforementioned two key factors, **NL-VSGG** consists of two key modules: Temporality-aware Caption Segmentation (TCS) module, and Action Duration Variability-aware Caption-Frame Alignment (ADV) module.
 *To the best of our knowledge, we are the first to train the VidSGG models with natural language supervision*.
 
 
@@ -46,8 +46,8 @@ Following [PLA](https://github.com/zjucsq/PLA?tab=readme-ov-file), we extract ob
 Based on VinVL object detector, extract object features.
 
 ``` python  
-python VSNLS/data_preprocess/extract_bbox_features_ag.py train
-python VSNLS/data_preprocess/extract_bbox_features_ag.py test
+python NL-VSGG/data_preprocess/extract_bbox_features_ag.py train
+python NL-VSGG/data_preprocess/extract_bbox_features_ag.py test
 ```
 
 
@@ -62,7 +62,7 @@ We use ChatGPT to split video captions and extract triplets based on split capti
 Given the video captions *datasets/AG/Charades_v1_train.csv*, we split video captions via [ChatGPT](https://openai.com/chatgpt).  
 
 ``` python  
-python VSNLS/TCS.py {API_KEY}
+python NL-VSGG/TCS.py {API_KEY}
 ```  
 *  You can download the results of the TCS module in [split_action_dict.pkl](https://drive.google.com/file/d/1s1BD0_7xHRxojCT2NI4R5hCYA6N8h1fs/view?usp=sharing).
 
@@ -71,7 +71,7 @@ python VSNLS/TCS.py {API_KEY}
 Following [LLM4SGG](https://github.com/rlqja1107/torch-LLM4SGG?tab=readme-ov-file#triplet-extraction-process-via-llm---vg), we extract triplets via LLM. We slightly revise prompt suitable for VidSGG.  
 
 ``` python  
-python VSNLS/extract_triplet.py {API_KEY}
+python NL-VSGG/extract_triplet.py {API_KEY}
 ```  
 *  You can download the results of the extracted triplets in [triplets_LLM4SGG.pkl](https://drive.google.com/file/d/1m0CyEWw1dBve6AKuHOCuzKt9dGp_6N64/view?usp=sharing).  
 
@@ -80,7 +80,7 @@ python VSNLS/extract_triplet.py {API_KEY}
 Based on split sentences in [TCS](#1.-TCS-module) module and parsed triplets in [Triplet Extraction](#2.-Triplet-Extraction), we align them via [DAC](https://github.com/SivanDoveh/DAC?tab=readme-ov-file).
 
 ``` python  
-python VSNLS/ADV.py
+python NL-VSGG/ADV.py
 ```  
 
 *  You can download the results of the ADV module in [semi_final_ag_data.pkl](https://drive.google.com/file/d/1gLnphPSSn-1XoOt2w5ok6dusMCyV8bLK/view?usp=sharing), [final_ag_data.pkl](https://drive.google.com/file/d/1BvpcG8-8yTwXuis5sLmakHyaMfoApryG/view?usp=sharing).  
@@ -91,7 +91,7 @@ python VSNLS/ADV.py
 We assign negative classes (i.e., `not contacting` and `not looking at`) using motion cues.  
 
 ``` python  
-python VSNLS/Assign_negative_classes.py
+python NL-VSGG/Assign_negative_classes.py
 ```  
 
 *  You can download the results of final processed files in [final_ag_data_w_neg.pkl](https://drive.google.com/file/d/1hWtHDN7kHMIyB3KQmq26eaiftbNW7Hhh/view?usp=sharing).
