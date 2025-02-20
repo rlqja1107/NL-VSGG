@@ -22,21 +22,21 @@ As shown in Fig.(a), existing Video Scene Graph Generation (VidSGG) studies are 
 ### Proposed Framework: **NL-VSGG**
 
 To train the VidSGG models with only readily available video captions, we propose a simple yet effective framework, called weakly supervised **V**id**S**GG with **N**atural **L**anguage **S**upervision (**VSNLS**). To consider aforementioned two key factors, **VSNLS** consists of two key modules: Temporality-aware Caption Segmentation (TCS) module, and Action Duration Variability-aware Caption-Frame Alignment (ADV) module.
-
+![alt text](image.png)
 *To the best of our knowledge, we are the first to train the VidSGG models with natural language supervision*.
 
 
-## **TODO List**  
+## <img src="asset/todo.png" width="22"> **TODO List**  
 
 - [x] Implement NL-VSGG on NVIDIA GeForce A6000 (48GB).
 - [ ] Implement NL-VSGG on Intel Gaudi-v2.
 
 
-## **Installation**  
+## <img src="asset/install.png" width="22"> **Installation**  
 
 Please refer to following [INSTALL.md](GUIDELINE/INSTALL.md)  
 
-## **Datasets**  
+## <img src="asset/data.png" width="22"> **Datasets**  
 
 Please refer to following [DATASET.md](GUIDELINE/DATASET.md)  
   
@@ -52,7 +52,7 @@ python VSNLS/data_preprocess/extract_bbox_features_ag.py test
 ```
 
 
-## **Method**
+## <img src="asset/method.png" width="22"> **Method**
 
 #### Utilization of ChatGPT  
 
