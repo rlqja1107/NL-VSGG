@@ -1,0 +1,30 @@
+multi_gpus: False
+num_workers: 4
+mode: 'sgdet'
+transformer_mode: 'wk'
+
+optimizer: 'adamw'
+lr: 0.00001
+lr_backbone: 0.00001 # 0.00001
+text_encoder_lr: 0.00001
+lr_drop: 20
+nepoch: 50
+enc_layer: 1
+dec_layer: 3
+
+is_wks: True
+feat_dim: 2048
+pseudo_way: 0
+union_box_feature: True
+
+data_path: 'datasets/AG'
+ckpt: None
+
+# Ours
+save_path: 'result/test'
+tensorboard_name: 'result/test'
+bce_loss: True
+teacher_model_path: ''
+pseudo_localized_SG_path: "datasets/AG/final_ag_data_w_neg.pkl"
+
+fraction_warmup_steps: 0.01

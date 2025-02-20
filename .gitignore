@@ -1,0 +1,8 @@
+*.pth
+*.so
+*.c
+*.pt
+DAC
+__pycache__
+build
+scene_graph_benchmark/*
