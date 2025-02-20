@@ -27,7 +27,7 @@ To train the VidSGG models with only readily available video captions, we propos
 
 ## <img src="asset/todo.png" width="22"> **TODO List**  
 
-- [x] Implement NL-VSGG on NVIDIA GeForce A6000 (48GB).
+- [x] Implement NL-VSGG on NVIDIA Geforce (CUDA).
 - [ ] Implement NL-VSGG on Intel Gaudi-v2.
 
 
