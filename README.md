@@ -25,6 +25,11 @@ To train the VidSGG models with only readily available video captions, we propos
 
 *To the best of our knowledge, we are the first to train the VidSGG models with natural language supervision*.
 
+
+## **TODO List**
+- [  ] Release the implementation code based on an Intel Gaudi-v2.
+
+
 ## **Installation**  
 
 Please refer to following [INSTALL.md](GUIDELINE/INSTALL.md)  
