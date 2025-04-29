@@ -25,11 +25,12 @@ To train the VidSGG models with only readily available video captions, we propos
 *To the best of our knowledge, we are the first to train the VidSGG models with natural language supervision*.
 
 
+* *I sincerely apologize for the error that occurred during the reproduction. I will make sure to fix it as soon as possible.*
+
 ## <img src="asset/todo.png" width="22"> **TODO List**  
 
 - [x] Implement NL-VSGG on NVIDIA Geforce (CUDA).
 - [ ] Implement NL-VSGG on Intel Gaudi-v2.
-
 
 ## <img src="asset/install.png" width="22"> **Installation**  
 
