@@ -15,13 +15,12 @@ from maskrcnn_benchmark.data.transforms import build_transforms
 from maskrcnn_benchmark.structures.image_list import to_image_list
 from maskrcnn_benchmark.utils.checkpoint import DetectronCheckpointer
 from maskrcnn_benchmark.data.transforms import build_transforms
-os.environ['CUDA_VISIBLE_DEVICES'] = '2'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0' # Your GPU ID
 torch.set_num_threads(4)
 
 train_or_test = str(sys.argv[1])
 
 frame_path = 'datasets/AG/frames/'
-frame_path = '/home/public/Datasets/CV/video/frames/'
 
 oi_box_label_name = json.load(open("datasets/VG-SGG-dicts-vgoi6-clipped.json", 'r'))
 oi_idx_to_label = oi_box_label_name['idx_to_label']

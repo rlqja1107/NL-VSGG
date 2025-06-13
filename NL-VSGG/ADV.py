@@ -108,6 +108,7 @@ for video_index in tqdm(video_index_list):
         video_tensor = []
         for f in video_frame_dict[video_index]:
             video_path = f'datasets/frames/{video_index}/{f}'
+            video_path = f'/home/public/Datasets/CV/video/frames/{video_index}/{f}'
             image = image_preprocess(Image.open(video_path)).unsqueeze(0)
             video_tensor.append(image)
             

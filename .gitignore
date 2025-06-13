@@ -5,4 +5,5 @@
 DAC
 __pycache__
 build
-scene_graph_benchmark/*
+scene_graph_benchmark
+*.csv

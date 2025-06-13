@@ -25,7 +25,6 @@ To train the VidSGG models with only readily available video captions, we propos
 *To the best of our knowledge, we are the first to train the VidSGG models with natural language supervision*.
 
 
-* *I sincerely apologize for the error that occurred during the reproduction. I will make sure to fix it as soon as possible.*
 
 ## <img src="asset/todo.png" width="22"> **TODO List**  
 
@@ -65,7 +64,7 @@ Given the video captions *datasets/AG/Charades_v1_train.csv*, we split video cap
 ``` python  
 python NL-VSGG/TCS.py {API_KEY}
 ```  
-*  You can download the results of the TCS module in [split_action_dict.pkl](https://drive.google.com/file/d/1s1BD0_7xHRxojCT2NI4R5hCYA6N8h1fs/view?usp=sharing).
+*  You can download the results of the TCS module in [split_action_dict.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/split_action_dict.pkl).
 
 ### 2. Triplet Extraction  
 
@@ -74,11 +73,11 @@ Following [LLM4SGG](https://github.com/rlqja1107/torch-LLM4SGG?tab=readme-ov-fil
 ``` python  
 python NL-VSGG/extract_triplet.py {API_KEY}
 ```  
-*  You can download the results of the extracted triplets in [triplets_LLM4SGG.pkl](https://drive.google.com/file/d/1m0CyEWw1dBve6AKuHOCuzKt9dGp_6N64/view?usp=sharing).  
+*  You can download the results of the extracted triplets in [triplets_LLM4SGG.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/triplets_LLM4SGG.pkl).  
 
 ### 3. ADV module  
 
-Based on split sentences in [TCS](#1.-TCS-module) module and parsed triplets in [Triplet Extraction](#2.-Triplet-Extraction), we align them via [DAC](https://github.com/SivanDoveh/DAC?tab=readme-ov-file).
+Based on split sentences in TCS module and parsed triplets in [Triplet Extraction](#2.-Triplet-Extraction), we align them via [DAC](https://github.com/SivanDoveh/DAC?tab=readme-ov-file).
 
 ``` python  
 python NL-VSGG/ADV.py
@@ -95,12 +94,12 @@ We assign negative classes (i.e., `not contacting` and `not looking at`) using m
 python NL-VSGG/Assign_negative_classes.py
 ```  
 
-*  You can download the results of final processed files in [final_ag_data_w_neg.pkl](https://drive.google.com/file/d/1hWtHDN7kHMIyB3KQmq26eaiftbNW7Hhh/view?usp=sharing).
+*  You can download the results of final processed files in [final_ag_data_w_neg.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/final_ag_data_w_neg.pkl).
 
 
 ### 4. Train SGG model  
 
-To train the model, you need `final_ag_data_w_neg.pkl` and `semi_final_ag_data.pkl` files.
+To train the model, you need [final_ag_data_w_neg.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/final_ag_data_w_neg.pkl) and [triplets_LLM4SGG.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/triplets_LLM4SGG.pkl) files. The file `triplets_LLM4SGG.pkl` contains the frame index for each frame. 
 
 #### STTran
 

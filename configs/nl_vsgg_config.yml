@@ -8,7 +8,7 @@ lr: 0.00001
 lr_backbone: 0.00001 # 0.00001
 text_encoder_lr: 0.00001
 lr_drop: 20
-nepoch: 50
+nepoch: 2
 enc_layer: 1
 dec_layer: 3
 

@@ -9,9 +9,14 @@ import os
 from copy import deepcopy
 from fasterRCNN.lib.model.utils.blob import prep_im_for_blob, im_list_to_blob
 
+
+def file_download(file_name):
+    os.system(f"wget https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/{file_name}")
+    os.system(f"mv {file_name} datasets/AG/")
+
 class AG_Train(Dataset):
 
-    def __init__(self, data_path=None, pseudo_label_path = 'datasets/AG/final_ag_data_w_neg.pkl', save_path=None, logger=None, semi_final_ag_data = 'datasets/AG/semi_final_ag_data.pkl'):
+    def __init__(self, data_path=None, pseudo_label_path = 'datasets/AG/final_ag_data_w_neg.pkl', save_path=None, logger=None):
 
         root_path = data_path
         self.frames_path = os.path.join(root_path, 'frames/')
@@ -84,14 +89,19 @@ class AG_Train(Dataset):
 
         print('-------loading annotations---------slowly-----------')
 
-
+        if not os.path.isfile("datasets/AG/ag_img_info_train.pkl"):
+            file_download("ag_img_info_train.pkl")
         with open("datasets/AG/ag_img_info_train.pkl", 'rb') as f:
             img_info = pickle.load(f)
 
-        with open(f"{semi_final_ag_data}", 'rb') as f:
-            semi_final_ag_data = pickle.load(f)
+        if not os.path.isfile("datasets/AG/triplets_LLM4SGG.pkl"):
+            file_download("triplets_LLM4SGG.pkl")
+        with open(f"datasets/AG/triplets_LLM4SGG.pkl", 'rb') as f: # This file contains frame list
+            frame_list_info = pickle.load(f)
 
         if pseudo_label_path != '':
+            if not os.path.isfile("datasets/AG/final_ag_data_w_neg.pkl"):
+                file_download("final_ag_data_w_neg.pkl")
             with open(pseudo_label_path, 'rb') as f:
                 final_ag_data_w_neg = pickle.load(f)
             logger.info(f"Load Pre-processed Pseudo labeled Dataset from '{pseudo_label_path}'")
@@ -107,8 +117,8 @@ class AG_Train(Dataset):
 
         for video_index, wk_ag_data in final_ag_data_w_neg.items():
             video_list = []
-            if video_index not in semi_final_ag_data: continue
-            for frame_id in semi_final_ag_data[video_index]['frame_list']:
+            if video_index not in frame_list_info: continue
+            for frame_id in frame_list_info[video_index]['frame_list']:
                 video_list.append(f"{video_index}/{frame_id}")
             self.gt_annotations.append(wk_ag_data)
 
@@ -205,6 +215,8 @@ class AG_Test(Dataset):
         self.spatial_relationships = self.relationship_classes[3:9]
         self.contacting_relationships = self.relationship_classes[9:]
 
+        if not os.path.isfile("datasets/AG/ag_img_info_test.pkl"):
+            file_download("ag_img_info_test.pkl")
         with open("datasets/AG/ag_img_info_test.pkl", 'rb') as f:
             img_info = pickle.load(f)
         print('-------loading annotations---------slowly-----------')

@@ -44,7 +44,7 @@ root
 │   └── VG-SGG-dicts-vgoi6-clipped.json (Provided by PLA)
 ```  
 * PLA: [link](https://github.com/zjucsq/PLA)  
-* [ag_train_id.pkl](https://drive.google.com/file/d/1h_kcdJdfwnPyHUWugS8nxHPeAno_7aPv/view?usp=sharing), [ag_test_id.pkl](https://drive.google.com/file/d/1g2xru3KayaIyCuJhxKsYpIe4hgNr3yI9/view?usp=sharing): Following [STTran](https://github.com/yrcong/STTran), we collect video index list with frames.
+* [ag_train_id.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/ag_train_id.pkl), [ag_test_id.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/ag_test_id.pkl): Following [STTran](https://github.com/yrcong/STTran), we collect video index list with frames.
 
-* [ag_img_info_train.pkl](https://drive.google.com/file/d/1eZw9ElQBbAFAnBkHF9-pjnsfW55e8SMd/view?usp=sharing), [ag_img_info_test.pkl](https://drive.google.com/file/d/14DvE5pWBWPlBG6yUnorIWt3rMztntetq/view?usp=sharing): Transformed images' width and height  
+* [ag_img_info_train.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/ag_img_info_train.pkl), [ag_img_info_test.pkl](https://huggingface.co/datasets/kb-kim/NL-VSGG/resolve/main/ag_img_info_test.pkl): Transformed images' width and height  
 Please refer to [NL-VSGG/data_preprocess/extract_ag_img_info.py](../NL-VSGG/data_preprocess/extract_ag_img_info.py)
